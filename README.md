@@ -167,7 +167,59 @@ Each clue includes:
 
 ---
 
-## 9. User Experience
+## 9. How to Run the Project (Execution Steps)
+
+Follow these steps to compile and run the Escape Room Game:
+
+### Step 1: Prepare the Environment
+
+* Install a C++ compiler (such as **g++** or **Visual Studio**).
+* Make sure the compiler supports **C++11 or later**.
+
+### Step 2: Open the Project
+
+* Open the `.cpp` source file containing the project code.
+* Ensure all code is inside a single source file (as required by the project).
+
+### Step 3: Compile the Program
+
+If you are using a terminal with g++:
+
+```bash
+g++ EscapeRoom.cpp -o EscapeRoom
+```
+
+If you are using **Visual Studio**:
+
+* Create a new *Console Application* project.
+* Paste the source code into the main `.cpp` file.
+* Build the project.
+
+### Step 4: Run the Program
+
+From the terminal:
+
+```bash
+./EscapeRoom
+```
+
+Or press **Run** inside your IDE.
+
+### Step 5: Playing the Game
+
+1. Choose one of the four entrance rooms (1–4).
+2. Solve the displayed clue to open doors.
+3. Navigate through intermediate rooms:
+
+   * EASY rooms → choose between two doors.
+   * HARD rooms → only one door.
+4. Use `H` to request a hint (score penalty applies).
+5. Use `0` to go back to the previous room.
+6. Reach an exit room and solve the final puzzle to escape.
+
+---
+
+## 10. User Experience
 
 * Clear console instructions.
 * Validated user input.
