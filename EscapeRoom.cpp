@@ -30,7 +30,7 @@
 
         int attempts;
         int points;
-
+        int timeLimit;   // seconds (0 = no limit)
         bool usedHint;
 
         ClueDifficulty diffTag;
@@ -97,8 +97,7 @@
     static const int CLUE_BANK_SIZE = 53;
     static const int FINAL_CLUE_INDEX = CLUE_BANK_SIZE - 1; // = 52
     Clue CLUE_BANK[CLUE_BANK_SIZE];
-    // ✅ Tracking used clues (0..51 فقط) علشان ميتكرروش طول اللعبة
-    bool USED_CLUES[FINAL_CLUE_INDEX]; // size = 52 (indices 0..51)
+    bool USED_CLUES[FINAL_CLUE_INDEX]; 
 
     void resetUsedClues() {
         for (int i = 0; i < FINAL_CLUE_INDEX; i++) USED_CLUES[i] = false;
@@ -109,7 +108,7 @@
             "What does CPU stand for?",
             "", "It's the main processor of the computer.",
             {"Central Processing Unit","Computer Processing User","Central Program Utility","Core Power Unit"},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -117,7 +116,7 @@
             "Which planet is known as the Red Planet?",
             "", "It looks reddish from space.",
             {"Mercury","Venus","Earth","Mars"},
-            'D', DEFAULT_ATTEMPTS, 10, false,
+            'D', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -125,7 +124,7 @@
             "Type the word: stack",
             "stack", "It's a data structure: LIFO.",
             {"","","",""},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             ANY_CLUE
         };
 
@@ -133,15 +132,15 @@
             "What is the chemical formula of water?",
             "h2o", "Hydrogen + Oxygen.",
             {"","","",""},
-            'A', DEFAULT_ATTEMPTS, 10, false,
-            EASY_CLUE
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
+            EASY_CLUEFinal Gate: who is the best Data Structure doctor?
         };
 
         CLUE_BANK[4] = { MCQ,
             "In C++, which symbol ends a statement?",
             "", "End of line in code.",
             {":",";",",","."},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -149,7 +148,7 @@
             "Which data structure follows LIFO?",
             "", "Last In First Out.",
             {"Queue","Array","Stack","Tree"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -157,7 +156,7 @@
             "What keyword allocates memory in C++? (one word)",
             "new", "Used with pointers.",
             {"","","",""},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             ANY_CLUE
         };
 
@@ -165,7 +164,7 @@
             "Which number is even?",
             "", "Divisible by 2.",
             {"9","14","21","35"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -173,7 +172,7 @@
             "What is 7 + 8?",
             "", "Simple addition.",
             {"12","13","15","16"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -181,7 +180,7 @@
             "Enter the password: SUT",
             "sut", "It is your university initials.",
             {"","","",""},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -189,7 +188,7 @@
             "Which protocol is used for routing inside an AS? (Common answer)",
             "", "Think OSPF/RIP/EIGRP.",
             {"HTTP","OSPF","FTP","SMTP"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -197,7 +196,7 @@
             "Which operator is used to assign a value to a variable in C++?",
             "", "It stores a value inside a variable.",
             {"==","=","!=","<="},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -205,7 +204,7 @@
             "Which keyword is used to define a class in C++?",
             "", "It defines user-defined data types.",
             {"struct","class","define","object"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -213,7 +212,7 @@
             "Which symbol is used to end a statement in C++?",
             "", "Every statement must end with it.",
             {":",";",".",","},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -221,7 +220,7 @@
             "Which header is required for input and output in C++?",
             "", "Used with cin and cout.",
             {"<stdio.h>","<iostream>","<conio.h>","<stdlib.h>"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -229,7 +228,7 @@
             "Which keyword is used to create an object in C++?",
             "", "Used with classes.",
             {"malloc","new","create","object"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -237,7 +236,7 @@
             "Which operator is used to access class members?",
             "", "Used with objects.",
             {".","->","::","*"},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -245,7 +244,7 @@
             "What is the correct return type of main()?",
             "", "Standard C++ requires it.",
             {"void","int","float","char"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -253,7 +252,7 @@
             "Which loop is guaranteed to run at least once?",
             "", "Condition is checked after execution.",
             {"for","while","do-while","foreach"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -261,7 +260,7 @@
             "Which operator is used for logical AND?",
             "", "Returns true or false.",
             {"&","&&","|","||"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -269,7 +268,7 @@
             "Which keyword is used to inherit a class?",
             "", "Used after class name.",
             {"extends","inherits",":","->"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -277,7 +276,7 @@
             "Which data type is used to store true or false?",
             "", "Introduced in C++.",
             {"int","bool","char","float"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -285,7 +284,7 @@
             "Which keyword is used to define a constant?",
             "", "Value cannot be changed.",
             {"static","final","const","define"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -293,7 +292,7 @@
             "Which access specifier allows access anywhere?",
             "", "Most open level.",
             {"private","protected","public","static"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -301,7 +300,7 @@
             "Which keyword is used to allocate memory dynamically?",
             "", "Works with heap.",
             {"alloc","malloc","new","create"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -309,7 +308,7 @@
             "Which operator is used to compare equality?",
             "", "Used in conditions.",
             {"=","==","!=","<="},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -317,7 +316,7 @@
             "Which statement is used to exit a loop?",
             "", "Stops execution immediately.",
             {"stop","end","break","exit"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -325,7 +324,7 @@
             "Which keyword is used to return a value from function?",
             "", "Ends function execution.",
             {"send","output","return","break"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -333,7 +332,7 @@
             "Which container stores elements in sequence?",
             "", "Part of STL.",
             {"map","set","vector","queue"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -341,7 +340,7 @@
             "Which keyword is used to include libraries?",
             "", "Starts with #.",
             {"import","using","#include","#define"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -349,7 +348,7 @@
             "Which symbol is used for single-line comments?",
             "", "Ignored by compiler.",
             {"/*","*/","//","#"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -357,7 +356,7 @@
             "Which data type stores decimal numbers?",
             "", "Has floating point.",
             {"int","char","float","bool"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -365,7 +364,7 @@
             "Which loop is best when number of iterations is known?",
             "", "Has initialization.",
             {"while","do-while","for","loop"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -373,7 +372,7 @@
             "Which keyword makes a variable shared across objects?",
             "", "Belongs to class.",
             {"const","global","static","shared"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -381,7 +380,7 @@
             "Which operator is used to access pointer members?",
             "", "Used with objects via pointers.",
             {".","::","->","*"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -389,7 +388,7 @@
             "Which keyword is used to free dynamic memory?",
             "", "Opposite of new.",
             {"free","delete","remove","clear"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -397,7 +396,7 @@
             "Which function is program entry point?",
             "", "Execution starts here.",
             {"start()","run()","main()","init()"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -405,7 +404,7 @@
             "Which data type holds a single character?",
             "", "Uses single quotes.",
             {"string","char","text","bool"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -413,7 +412,7 @@
             "Which keyword avoids name conflicts?",
             "", "Used with std.",
             {"using","scope","namespace","define"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -421,7 +420,7 @@
             "Which operator increases value by one?",
             "", "Increment operator.",
             {"+=","++","--","+="},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -429,7 +428,7 @@
             "Which STL container stores key-value pairs?",
             "", "Keys are unique.",
             {"vector","list","map","array"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -437,7 +436,7 @@
             "Which keyword enables polymorphism?",
             "", "Used with functions.",
             {"static","inline","virtual","override"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -445,7 +444,7 @@
             "Which operator is used for OR logic?",
             "", "Returns true if one is true.",
             {"|","||","&","&&"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -453,7 +452,7 @@
             "Which function prints output?",
             "", "Uses stream insertion.",
             {"cin","print","cout","output"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -461,7 +460,7 @@
             "Which keyword is used to define macros?",
             "", "Preprocessor directive.",
             {"#macro","#define","#include","#ifdef"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -469,7 +468,7 @@
             "Which concept allows same function name with different parameters?",
             "", "Compile-time polymorphism.",
             {"Overriding","Inheritance","Overloading","Abstraction"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -477,7 +476,7 @@
             "Which keyword hides implementation details?",
             "", "OOP principle.",
             {"Inheritance","Encapsulation","Polymorphism","Abstraction"},
-            'D', DEFAULT_ATTEMPTS, 10, false,
+            'D', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -485,7 +484,7 @@
             "Which operator is used for address of a variable?",
             "", "Returns memory location.",
             {"*","&","->","%"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -493,7 +492,7 @@
             "Which keyword is used to handle exceptions?",
             "", "Used with try.",
             {"catch","throw","error","handle"},
-            'A', DEFAULT_ATTEMPTS, 10, false,
+            'A', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -501,7 +500,7 @@
             "Which function generates random numbers?",
             "", "Needs <cstdlib>.",
             {"random()","rand()","srand()","generate()"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             EASY_CLUE
         };
 
@@ -509,7 +508,7 @@
             "Which keyword makes a function not modify data?",
             "", "Used after function.",
             {"final","const","static","virtual"},
-            'B', DEFAULT_ATTEMPTS, 10, false,
+            'B', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -517,7 +516,7 @@
             "Which data type is best for large integers?",
             "", "Holds bigger values.",
             {"int","short","long long","float"},
-            'C', DEFAULT_ATTEMPTS, 10, false,
+            'C', DEFAULT_ATTEMPTS, 10, 20, false,
             HARD_CLUE
         };
 
@@ -526,7 +525,7 @@
         "Final Gate: who is the best Data Structure doctor?",
         "doctor Aya abdelnabi", "She teaches Data Structures.",
         {"","","",""},
-        'A', DEFAULT_ATTEMPTS, 15, false,
+        'A', DEFAULT_ATTEMPTS, 15, 15, false,
         ANY_CLUE
     };
     }
@@ -621,9 +620,8 @@
                 << (r->next2 ? ("Room " + to_string(r->next2->roomID)) : "[NONE]")
                 << "\n";
         }
+        cout << "  0) Back\n";
 
-        if (r->prev) cout << "  0) Back -> Room " << r->prev->roomID << "\n";
-        else cout << "  0) Back -> [NONE]\n";
 
         cout << "  9) Quit\n";
         cout << "========================\n";
@@ -643,7 +641,7 @@
             cout << "C) " << clue.options[2] << "\n";
             cout << "D) " << clue.options[3] << "\n\n";
         }
-
+        time_t startTime = time(nullptr);
         while (clue.attempts > 0) {
             cout << "(Attempts: " << clue.attempts << ")\n";
             cout << "Your answer";
@@ -654,6 +652,18 @@
             getline(cin, input);
             if (input.size() == 0) continue;
 
+            if (clue.timeLimit > 0) {
+                int elapsed = (int)(time(nullptr) - startTime);
+                if (elapsed > clue.timeLimit) {
+                    clue.attempts--;
+                    cout << "Time out! Wrong.\n";
+                    startTime = time(nullptr);
+                    continue;
+                }
+            }
+
+
+
             // Hint
             if (input.size() == 1 && (input[0] == 'H' || input[0] == 'h')) {
                 if (!clue.usedHint) {
@@ -663,6 +673,7 @@
                 } else {
                     cout << "Hint already used.\n";
                 }
+                startTime = time(nullptr);
                 continue;
             }
 
@@ -710,6 +721,14 @@
             r->clues[1] = tc;
         }
     }
+    void shuffleRooms(Room** arr, int n) {
+    for (int i = n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        Room* tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+}
 
     /* =========================
     BUILD MAP (Linked nodes)
@@ -843,6 +862,29 @@
     /* =========================
     GAME LOOP
     ========================= */
+    struct PathNode {
+    Room* r;
+    PathNode* next;
+    };
+
+    void pushPath(PathNode*& top, Room* r) {
+        PathNode* n = new PathNode{r, top};
+        top = n;
+    }
+
+    Room* popPath(PathNode*& top) {
+        if (!top) return nullptr;
+        PathNode* n = top;
+        Room* r = n->r;
+        top = n->next;
+        delete n;
+        return r;
+    }
+
+    void freePath(PathNode*& top) {
+        while (top) popPath(top);
+    }
+
     int main() {
         srand((unsigned)time(0));
         initClueBank();
@@ -866,6 +908,9 @@
 
         Room* current = gm.entrances[start - 1];
         int score = 100;
+        PathNode* history = nullptr;
+        pushPath(history, current); 
+
 
         while (true) {
             current->visited = true;
@@ -884,11 +929,18 @@
             }
 
             // Back
+            // Back (History Stack)
             if (choice == 0) {
-                if (current->prev) current = current->prev;
-                else cout << "No previous room.\n";
+                if (history && history->next) {
+                    popPath(history);          // شيل الحالية
+                    current = history->r;      // ارجع للي قبلها
+                } else {
+                    cout << "No previous room.\n";
+                }
                 continue;
             }
+
+
 
             // ✅ EXIT room behavior: door 1 solves final puzzle (NOT navigation)
             if (current->roomType == "EXIT") {
@@ -938,11 +990,12 @@
                 continue;
             }
 
-            // Move
-            nextRoom->prev = current; // dynamic back path
+            pushPath(history, nextRoom);
             current = nextRoom;
+
         }
 
         freeMap(gm);
+        freePath(history);
         return 0;
     }
