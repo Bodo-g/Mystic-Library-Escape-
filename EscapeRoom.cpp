@@ -133,7 +133,7 @@
             "h2o", "Hydrogen + Oxygen.",
             {"","","",""},
             'A', DEFAULT_ATTEMPTS, 10, 20, false,
-            EASY_CLUEFinal Gate: who is the best Data Structure doctor?
+            EASY_CLUE
         };
 
         CLUE_BANK[4] = { MCQ,
