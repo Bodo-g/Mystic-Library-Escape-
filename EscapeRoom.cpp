@@ -701,7 +701,7 @@
             }
         }
 
-        cout << "Door remains LOCKED. (No attempts left)\n";
+        cout << "Your trial is now inside the maze, forever. (No more attempts)\n";
         return false;
     }
 
