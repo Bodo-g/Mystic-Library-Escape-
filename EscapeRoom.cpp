@@ -525,7 +525,7 @@ void resetUsedClues() {
         // Final (index 52)
         CLUE_BANK[52] = { TEXT_ANSWER,
         "Final Gate: who is the best Data Structure doctor?",
-        "doctor Aya abdelnabi", "She teaches Data Structures.",
+        "Dr. Mohamed Ali, Eng. Aya Abdelnabi", "She teaches Data Structures.",
         {"","","",""},
         'A', DEFAULT_ATTEMPTS, 15, 15, false,
         ANY_CLUE
